@@ -1,0 +1,47 @@
+﻿<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Project</title>
+        <style>
+            .content {
+                position: absolute; /* Абсолютное позиционирование */
+                left: 700px; /* Положение от левого края */
+                top: 50px; /* Положение от верхнего края */
+                width: 400px; /* Ширина блока */
+                background: #00a5b6; /* Цвет фона */
+                padding: 15px; /* Поля вокруг текста */
+                text-align: justify; /* Выравнивание по ширине */
+                font: 16pt Times;
+                border-radius: 20px;
+            }
+            input {
+			    height: 35px;
+			    border-radius: 10px;
+			    font-size: 16px;
+                border:1px solid #999;
+                border:0 none;
+                padding:5px 15px 5px;
+		    }
+            body {
+                background: url(images/back.jpg);
+            }
+        </style>
+    </head>
+    <body link="#FF0000" vlink="#fefe22" alink="#ff9900" bgcolor="#000000" text="#ff9900">
+        <div class="content">
+            <h2 align="center">Список пользователей:</h2>
+            <div align="center">
+                {% for user in list %}
+                <div><a href = "user?id={{ user.id_ }}"> {{ user.name_ }} </a></div>
+                {% endfor %}
+            </div>
+            <form action="/user_main" method="post">
+                <p align="center">
+                    <input type="submit" value="Назад"/>
+                </p>
+            </form>
+        </div>
+    </body>
+</html>
+

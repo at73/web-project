@@ -1,0 +1,73 @@
+﻿<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Project</title>
+        <style>
+            .content {
+                position: absolute; /* Абсолютное позиционирование */
+                left: 700px; /* Положение от левого края */
+                top: 50px; /* Положение от верхнего края */
+                width: 400px; /* Ширина блока */
+                background: #00a5b6; /* Цвет фона */
+                color: white; /* Цвет текста */
+                padding: 15px; /* Поля вокруг текста */
+                text-align: justify; /* Выравнивание по ширине */
+                font: 16pt sans-serif;
+                border-radius: 20px;
+            }
+            input {
+			    height: 35px;
+			    border-radius: 10px;
+			    font-size: 16px;
+                border:1px solid #999;
+                border:0 none;
+                padding:5px 15px 5px;
+		    }
+            body {
+                background: url(images/back.jpg);
+            }
+        </style>
+    </head>
+    <body bgcolor="#000000" text="#FF0000">
+        <div class="content">
+            <h2 align="center">Регистрация</h2>
+            <form action="/user_main" method="post">
+                <div align="center">
+                    Введите имя:
+                    <br>
+                    <input type="text" name="name" maxlength="30" size="30" value="{{ name }}" autofocus required>
+                </div>
+                <br>
+                {% if reg_error %}
+                <div align="center">
+                    Логин <b>{{ id }}</b> занят <br> введите другой! <br> <br>
+                </div>
+                {% endif %}
+                <div align="center">
+                    Введите ваш логин:
+                    <br>
+                    <input type="text" name="id" maxlength="30" size="30"  required>
+                </div>
+                <br>
+                <div align="center">
+                    Введите пароль:
+                    <br>
+                    <input type="password" name="password" maxlength="30" size="30" required>
+                </div>
+                <p align="center">
+                    <input type="submit" value="Зарегистрироваться"/>
+                </p>
+                <p align="center">
+                    <input type="reset" value="Очистить">
+                </p>
+            </form>
+            <form action="/" method="get">
+                <p align="center">
+                    <input type="submit" value="Назад"/>
+                </p>
+            </form>
+        </div>
+    </body>
+</html>
+

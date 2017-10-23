@@ -1,0 +1,49 @@
+﻿<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Project</title>
+        <style>
+            .content {
+                position: absolute; /* Абсолютное позиционирование */
+                left: 700px; /* Положение от левого края */
+                top: 50px; /* Положение от верхнего края */
+                width: 400px; /* Ширина блока */
+                background: #00a5b6; /* Цвет фона */
+                color: white; /* Цвет текста */
+                padding: 15px; /* Поля вокруг текста */
+                text-align: justify; /* Выравнивание по ширине */
+                font: 16pt sans-serif;
+                border-radius: 20px;
+            }
+            input {
+			    height: 35px;
+			    border-radius: 10px;
+			    font-size: 16px;
+                border:1px solid #999;
+                border:0 none;
+                padding:5px 15px 5px;
+		    }
+            body {
+                background: url(images/back.jpg);
+            }
+        </style>
+    </head>
+    <body bgcolor="#000000" text="#FF0000">
+        <div class="content">
+            <form action="/" method="get">
+                <div align="center">
+                    <h2> Ошибка </h2>
+                    Неверный логин или пароль! <br> Или вы не зарегистрированы!
+                    <br>
+                    <br>
+                    Введите правильные данные или зарегистрируйтесь.
+                </div>
+                <p align="center">
+                    <input type="submit" value="Переход на главную страницу">
+                </p>
+            </form>
+        </div>
+    </body>
+</html>
+

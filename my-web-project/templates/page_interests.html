@@ -1,0 +1,72 @@
+﻿<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Project</title>
+        <style>
+            .content {
+                position: absolute; /* Абсолютное позиционирование */
+                left: 700px; /* Положение от левого края */
+                top: 50px; /* Положение от верхнего края */
+                width: 400px; /* Ширина блока */
+                background: #00a5b6; /* Цвет фона */
+                color: white; /* Цвет текста */
+                padding: 15px; /* Поля вокруг текста */
+                text-align: justify; /* Выравнивание по ширине */
+                font: 16pt sans-serif;
+                border-radius: 20px;
+            }
+            input {
+			    height: 35px;
+			    border-radius: 10px;
+			    font-size: 16px;
+                border:1px solid #999;
+                border:0 none;
+                padding:5px 15px 5px;
+		    }
+            body {
+                background: url(images/back.jpg);
+            }
+        </style>
+    </head>
+    <body bgcolor="#000000">
+        <div class="content">
+            <h3 align="center">Пользователь: {{ user.name_ }}</h3>
+            <p align="center"> Ваши интересы: </p>
+            {% for interest in interests %}
+                <div align="center"> <b>{{ interest.value }}</b></div>
+            {% endfor %}
+            <br>
+            <form action="/interests" method="post">
+                <div align="center">
+                    Введите интерес,<br>
+                    который хотите добавить:
+                    <input type="text" name="interest" maxlength="30" size="30" required autofocus/>
+                    <p align="center">
+                        <input type="submit" value="Добавить"/>
+                    </p>
+                    <input type="hidden" name="function" value="add" />
+                </div>
+            </form>
+            <form action="/interests" method="post">
+                <div align="center">
+                    Выберите интересы,<br>
+                    которые нужно удалить:
+                    {% for interest in interests: %}
+                    <div align="center"><input type="checkbox" name="{{ interest.value }}" value="{{ interest.value }}" > {{ interest.value }}</div>
+                    {% endfor %}
+                    <p align="center">
+                        <input type="submit" value="Удалить"/>
+                    </p>
+                    <input type="hidden" name="function" value="delete"/>
+                </div>
+            </form>
+            <form action="/user_main" method="post">
+                <p align="center">
+                    <input type="submit" value="Назад"/>
+                </p>
+            </form>
+         </div>
+    </body>
+</html>
+

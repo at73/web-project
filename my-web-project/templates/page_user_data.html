@@ -1,0 +1,77 @@
+﻿<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Project</title>
+        <style>
+            .content {
+                position: absolute; /* Абсолютное позиционирование */
+                left: 700px; /* Положение от левого края */
+                top: 50px; /* Положение от верхнего края */
+                width: 400px; /* Ширина блока */
+                background: #00a5b6; /* Цвет фона */
+                color: white; /* Цвет текста */
+                padding: 15px; /* Поля вокруг текста */
+                text-align: justify; /* Выравнивание по ширине */
+                font: 16pt sans-serif;
+                border-radius: 20px;
+            }
+            input {
+			    height: 35px;
+			    border-radius: 10px;
+			    font-size: 16px;
+                border:1px solid #999;
+                border:0 none;
+                padding:5px 15px 5px;
+		    }
+            body {
+                background: url(images/back.jpg);
+            }
+        </style>
+    </head>
+    <body bgcolor="#000000" text="#FF0000">
+        <div class="content">
+            <div align="center">
+                <h3> Изменение данных </h3>
+                <p>
+                    Ваше имя:<br>
+                    <input type="text" name="old name" value="{{ user.name_ }}" readonly>
+                </p>
+                <p>
+                    Возраст:<br>
+                    <input type="text" name="old age" value="{{ user.age_ }}" size="2" readonly>
+                </p>
+            </div>
+            <form action="/user_data" method="post">
+                <div align="center">
+                    <p>
+                        Введите новое имя:<br>
+                        <input type="text" name="name" maxlength="30" size="30" autofocus required>
+                    </p>
+                </div>
+                <input type="hidden" name="function" value="name" />
+                <p align="center">
+                    <input type="submit" value="Сохранить">
+                </p>
+            </form>
+            <form action="/user_data" method="post">
+                <div align="center">
+                    <p>
+                        Введите новый возраст:<br>
+                        <input type="text" name="age" maxlength="2" size="2" autofocus required>
+                    </p>
+                </div>
+                <input type="hidden" name="function" value="age" />
+                <p align="center">
+                    <input type="submit" value="Сохранить">
+                </p>
+            </form>
+            <form action="/user_main" method="post">
+                <p align="center">
+                    <input type="submit" value="Назад"/>
+                </p>
+            </form>
+        </div>
+    </body>
+</html>
+

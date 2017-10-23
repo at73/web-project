@@ -1,0 +1,100 @@
+﻿<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Project</title>
+        <style>
+            .content {
+                position: absolute;
+                left: 700px;
+                top: 50px;
+                width: 400px;
+                background: #00a5b6;
+                color: white;
+                padding: 15px;
+                text-align: justify;
+                font: 16pt sans-serif;
+                border-radius: 20px;
+            }
+            input {
+			    height: 35px;
+			    border-radius: 10px;
+			    font-size: 16px;
+                border:1px solid #999;
+                border:0 none;
+                padding:5px 15px 5px;
+		    }
+            body {
+                background: url(images/back.jpg);
+            }
+            .project1 {
+                position:absolute;
+                left:100px;
+                top:60px;
+                width: 1em;
+                line-height: 1em;
+                font-size: 32px;
+                background: #00a5b6;
+                color: white;
+                border-radius: 5px;
+            }
+            .project2 {
+                position:absolute;
+                left:250px;
+                top:300px;
+                width: 1em;
+                line-height: 1em;
+                font-size: 32px;
+                background: #00a5b6;
+                color: white;
+                border-radius: 5px;
+            }
+        </style>
+    </head>
+    <body bgcolor="#000000" text="#FF0000">
+        <div class="content">
+                <div align="center">
+                    <h2> Вход в систему </h2>
+                    <form action="/user_main" method="post">
+                        {% if login: %}
+                        <input type="text" name="id" value="{{ nickname }}" size="30" readonly> <br>
+                        {% else %}
+                        <p>
+                            <a href = "{{ login_url }}"> Войти через аккаунт Google </a>
+                        </p>
+                        или
+                        <p>
+                            Введите логин:<br>
+                            <input type="text" name="id" maxlength="30" size="30" autofocus required>
+                        </p>
+                        <p>
+                            Введите пароль:<br>
+                            <input type="password" name="password" maxlength="30" size="30" required>
+                        </p>
+                    {% endif %}
+                        <p align="center">
+                            <input type="submit" value="Войти">
+                        </p>
+                    </form>
+                </div>
+            {% if login: %}
+            <p align="center">
+                <a href="{{ logout_url }}"> Выйти </a>
+            </p>
+            {% else %}
+            <form action="/reg">
+                <p align="center">
+                    <input type="submit" value="Регистрация">
+                </p>
+            </form>
+            {% endif %}
+        </div>
+        <div class="project1">
+            Р Е К О М Е Н Д А Ц И И
+        </div>
+        <div class="project2">
+            Ф И Л Ь М О В
+        </div>
+    </body>
+</html>
+
