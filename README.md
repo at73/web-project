@@ -1,3 +1,3 @@
-# Recommendation service #
+## Recommendation service ##
 
-This web-service can advise you film, based on your intersets.
+This web-service can advise you film, based on your interests.
